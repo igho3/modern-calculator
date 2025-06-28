@@ -1,0 +1,144 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2980b9;
+    --dark-color: #2c3e50;
+    --light-color: #ecf0f1;
+    --danger-color: #e74c3c;
+    --success-color: #2ecc71;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-image: url('images/photo1.jpg'); /* For image in subfolder */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+}
+
+.calculator {
+    background-image: url('images/calculator-bg.jpg');
+    width: 500px; /* Increase from default 320px */
+    padding: 25px; /* Add internal spacing */
+    /* Existing styles */
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+}
+
+.display {
+    padding: 25px;
+    text-align: right;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.previous-operand {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.current-operand {
+    font-size: 3rem;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+}
+
+.btn {
+    border-radius: 12px;
+    outline: none;
+    padding: 25px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: var(--light-color);
+}
+
+.btn:hover {
+    background-color: #d5dbdb;
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn.span-2 {
+    grid-column: span 2;
+}
+
+.btn[data-action="divide"],
+.btn[data-action="multiply"],
+.btn[data-action="subtract"],
+.btn[data-action="add"],
+.btn[data-action="equals"] {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn[data-action="divide"]:hover,
+.btn[data-action="multiply"]:hover,
+.btn[data-action="subtract"]:hover,
+.btn[data-action="add"]:hover,
+.btn[data-action="equals"]:hover {
+    background-color: var(--secondary-color);
+}
+
+.btn[data-action="clear"] {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.btn[data-action="clear"]:hover {
+    background-color: #c0392b;
+}
+
+.btn[data-action="delete"] {
+    background-color: var(--dark-color);
+    color: white;
+}
+
+.btn[data-action="delete"]:hover {
+    background-color: #1a252f;
+}
+
+@media (max-width: 400px) {
+    .btn {
+        padding: 15px;
+    }
+    
+    .display {
+        height: 100px;
+    }
+    
+    .previous-operand {
+        font-size: 1rem;
+    }
+    
+    .current-operand {
+        font-size: 2rem;
+    }
+}
